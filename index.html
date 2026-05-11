@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>G-Tech Digital | Premium Digital & Online Services</title>
+    <!-- Google Fonts & Material Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Material+Symbols+Outlined:opsz,wght,FILL@24,400,0;24,500,0;24,600,1" rel="stylesheet">
+    <!-- Font Awesome 6 (Free) for latest social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Tailwind CSS compiled CDN - DEV ONLY. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0058bd',
+                        'primary-dark': '#004494',
+                        secondary: '#006e2c',
+                        accent: '#f5a623',
+                        'accent-dark': '#d48a0e',
+                        background: '#fcf9f8',
+                        surface: '#fcf9f8',
+                        'on-surface': '#1b1b1c',
+                        'on-surface-variant': '#424753',
+                        outline: '#727785',
+                        'outline-variant': '#c2c6d5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui']
+                    },
+                    borderRadius: {
+                        '4xl': '2rem',
+                        '5xl': '2.5rem'
+                    },
+                    animation: {
+                        'float': 'float 4s ease-in-out infinite',
+                        'fade-in': 'fadeIn 0.6s ease-out'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%,100%': {
+                                transform: 'translateY(0px)'
+                            },
+                            '50%': {
+                                transform: 'translateY(-10px)'
+                            }
+                        },
+                        fadeIn: {
+                            from: {
+                                opacity: '0',
+                                transform: 'translateY(12px)'
+                            },
+                            to: {
+                                opacity: '1',
+                                transform: 'translateY(0)'
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+         :root {
+            --bg-primary: #fcf9f8;
+            --surface-card: #ffffff;
+            --text-primary: #1b1b1c;
+            --text-secondary: #424753;
+            --border-light: #e2e8f0;
+        }
+        
+        .dark {
+            --bg-primary: #0a0f1a;
+            --surface-card: #131824;
+            --text-primary: #f0f4fa;
+            --text-secondary: #b9c0d0;
+            --border-light: #2a3040;
+        }
+        
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Inter', system-ui;
+            scroll-behavior: smooth;
+            transition: background-color 0.3s ease, color 0.2s ease;
+        }
+        
+        .glass-nav {
+            backdrop-filter: blur(16px);
+            background: rgba(252, 249, 248, 0.85);
+            border-bottom: 1px solid rgba(194, 198, 213, 0.3);
+        }
+        
+        .dark .glass-nav {
+            background: rgba(10, 15, 25, 0.92);
+            border-bottom-color: rgba(255, 255, 255, 0.08);
+        }
+        
+        .hero-gradient {
+            background: radial-gradient(circle at 20% 30%, rgba(0, 88, 189, 0.08) 0%, var(--bg-primary) 90%);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        .dark .glass-card {
+            background: rgba(25, 30, 45, 0.8);
+            border-color: rgba(255, 255, 255, 0.08);
+        }
+        
+        .social-icon {
+            transition: all 0.25s ease;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-3px);
+            filter: drop-shadow(0 4px 8px rgba(0, 88, 189, 0.3));
+        }
+        
+        .scroll-top {
+            position: fixed;
+            bottom: 1rem;
+            right: 1.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            cursor: pointer;
+            z-index: 99;
+        }
+        
+        .scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+            bottom: 2rem;
+        }
+        
+        .card-hover {
+            transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #0058bd, #00a6c4);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .dark .gradient-text {
+            background: linear-gradient(135deg, #60a5fa, #34d399);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+        
+        .mobile-drawer-open {
+            overflow: hidden;
+        }
+        
+        .btn-pulse:active {
+            transform: scale(0.96);
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            left: 20px;
+            z-index: 98;
+            background-color: #25D366;
+            border-radius: 50%;
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+            transition: all 0.2s;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.08);
+            background-color: #20b859;
+        }
+        
+        .dark .contact-card-bg {
+            background: #131824;
+        }
+    </style>
+</head>
+
+<body class="antialiased overflow-x-hidden">
+
+    <!-- Backend Simulation -->
+    <script>
+        (function() {
+            window.AppDB = {
+                init: function() {
+                    if (!localStorage.getItem('gtech_contacts')) localStorage.setItem('gtech_contacts', JSON.stringify([]));
+                    if (!localStorage.getItem('gtech_portfolio_views')) localStorage.setItem('gtech_portfolio_views', JSON.stringify({
+                        total: 2047
+                    }));
+                },
+                saveContact: function(data) {
+                    let contacts = JSON.parse(localStorage.getItem('gtech_contacts') || '[]');
+                    contacts.push({
+                        id: Date.now(),
+                        ...data,
+                        date: new Date().toISOString()
+                    });
+                    localStorage.setItem('gtech_contacts', JSON.stringify(contacts));
+                },
+                incrementPortfolioView: function() {
+                    let stats = JSON.parse(localStorage.getItem('gtech_portfolio_views'));
+                    stats.total += 1;
+                    localStorage.setItem('gtech_portfolio_views', JSON.stringify(stats));
+                    return stats.total;
+                }
+            };
+            window.AppDB.init();
+            window.mockApi = {
+                subscribe: (email) => new Promise(resolve => setTimeout(() => resolve({
+                    ok: true,
+                    msg: `🙏 Thanks for joining, ${email}! You're now part of G-Tech Digital community.`
+                }), 300))
+            };
+        })();
+    </script>
+
+    <!-- Scroll Top Button -->
+    <button id="scrollTopBtn" class="scroll-top bg-primary text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-primary-dark transition-all z-50">
+        <span class="material-symbols-outlined">keyboard_arrow_up</span>
+    </button>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/919067168044?text=Hello%20G-Tech%20Digital%20online%20Services%20i%20want%20some%20services%20for%20you" target="_blank" class="whatsapp-float" aria-label="WhatsApp Chat">
+        <i class="fab fa-whatsapp text-white text-3xl"></i>
+    </a>
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full z-50 glass-nav shadow-sm">
+        <div class="max-w-[1440px] mx-auto px-5 md:px-116 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <img alt="Logo" class="w-10 h-10 rounded-xl object-cover shadow-md" src="images/G-Tech.png">
+                <span class="text-xl md:text-2xl font-extrabold gradient-text">G-Tech Digital</span>
+            </div>
+            <!-- Desktop Navigation with clear dark visible links -->
+            <nav class="hidden md:flex items-center gap-7">
+                <a href="#home" class="font-semibold border-b-2 border-primary pb-1 text-on-surface hover:text-primary dark:text-white transition">Home</a>
+                <a href="#services" class="text-on-surface dark:text-gray-200 hover:text-primary transition font-medium">Services</a>
+                <a href="#online-services" class="text-on-surface dark:text-gray-200 hover:text-primary transition font-medium">Online Services</a>
+                <a href="#portfolio" class="text-on-surface dark:text-gray-200 hover:text-primary transition font-medium">Portfolio</a>
+                <a href="#contact" class="text-on-surface dark:text-gray-200 hover:text-primary transition font-medium">Contact</a>
+            </nav>
+            <div class="flex items-center gap-3">
+                <button id="darkModeToggle" class="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10"><span id="themeIcon" class="material-symbols-outlined">dark_mode</span></button>
+                <button id="mobileMenuBtn" class="md:hidden p-2"><span class="material-symbols-outlined">menu</span></button>
+                <a href="#contact" class="bg-primary text-white px-5 py-2 rounded-full font-semibold text-sm shadow-md hover:shadow-xl hidden sm:inline-block">Get Started</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileDrawerOverlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden transition-all"></div>
+    <div id="mobileDrawer" class="fixed top-0 left-0 h-full w-4/5 max-w-xs bg-white dark:bg-[#0f1420] shadow-2xl z-50 transform -translate-x-full transition-transform duration-300 flex flex-col">
+        <div class="flex justify-between p-6 border-b"><span class="text-xl font-bold gradient-text">G-Tech Digital</span><button id="closeDrawerBtn"><span class="material-symbols-outlined">close</span></button></div>
+        <nav class="flex flex-col gap-4 p-6 text-lg">
+            <a href="#home" class="flex gap-3 py-2 hover:text-primary">🏠 Home</a>
+            <a href="#services" class="flex gap-3 py-2 hover:text-primary">⚙️ Services</a>
+            <a href="#online-services" class="flex gap-3 py-2 hover:text-primary">🌐 Online Services</a>
+            <a href="#portfolio" class="flex gap-3 py-2 hover:text-primary">📁 Portfolio</a>
+            <a href="#contact" class="flex gap-3 py-2 hover:text-primary">📧 Contact</a>
+        </nav>
+        <div class="mt-auto p-6 border-t">
+            <div class="flex justify-center gap-5 text-primary">
+                <i class="fab fa-facebook-f text-xl cursor-pointer hover:scale-110 transition"></i>
+                <i class="fab fa-instagram text-xl cursor-pointer hover:scale-110 transition"></i>
+                <i class="fab fa-linkedin-in text-xl cursor-pointer hover:scale-110 transition"></i>
+                <i class="fab fa-twitter text-xl cursor-pointer hover:scale-110 transition"></i>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="pt-32 md:pt-48 pb-20 hero-gradient px-5 md:px-16">
+            <div class="max-w-[1440px] mx-auto grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <div class="inline-flex bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold"><span class="material-symbols-outlined text-[18px] mr-1">verified</span> Trusted Partner for Digital Innovation</div>
+                    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">Premium Digital & <span class="gradient-text">Online Services Suite</span></h1>
+                    <p class="text-lg text-on-surface-variant max-w-xl">Graphic Design | Web & App Dev | IT Solutions | Data Entry | PDF Tools | Biodata | PPT & more.</p>
+                    <div class="flex flex-wrap gap-4"><a href="#services" class="bg-primary text-white px-7 py-3.5 rounded-xl font-semibold flex gap-2 shadow-md hover:shadow-lg btn-pulse">Explore All <span class="material-symbols-outlined">arrow_forward</span></a><a href="#contact" class="border-2 border-primary/50 px-7 py-3.5 rounded-xl font-semibold hover:bg-primary/5">Contact Us</a></div>
+                </div>
+                <div class="relative">
+                    <div class="rounded-3xl overflow-hidden shadow-2xl"><img class="w-full aspect-[4/3] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBikxeSs3uoDIZaOhpk_LFenvw3HIbMRHbzk3Sl-t4O03ZL4s2TUn2qaRvyvijCxdLWk8Kj6iYuLV4e4goOxSioWkeAU7WOkYyl7n-uH2c4YWG1o0_tgiUMUccobBo25JZ_qByCMA5sH7IcXXz-NuRZiZDbiwYk7eUO6NJ3-kDldB5GLoD8Pk3ueSxKWsaHNVLwoEDxJXpzK7ll91myM58ptxuAo332whk85J6YJ2eincdHbxbNuv1r2xQA3ksXK7tQrrkPGd7wvyI"
+                            alt="Workspace"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Services -->
+        <section id="services" class="py-20 px-5 md:px-16 bg-surface-container-lowest">
+            <div class="max-w-[1440px] mx-auto">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold">Our <span class="gradient-text">Core Services</span></h2>
+                    <p class="text-on-surface-variant mt-3">Powering business growth with modern tech & creative solutions.</p>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="rounded-3xl p-7 bg-white dark:bg-[#131824] border-l-8 border-l-primary shadow-md card-hover">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/20 to-blue-500/5 flex items-center justify-center text-primary mb-5"><span class="material-symbols-outlined text-3xl">palette</span></div>
+                        <h3 class="text-2xl font-bold">Graphic Design</h3>
+                        <p class="text-on-surface-variant my-3">Logos, branding, and visuals that tell your story.</p><span class="text-primary text-sm font-semibold">Learn more →</span></div>
+                    <div class="rounded-3xl p-7 bg-white dark:bg-[#131824] border-l-8 border-l-emerald-600 shadow-md card-hover">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-emerald-500/5 flex items-center justify-center text-emerald-600 mb-5"><span class="material-symbols-outlined text-3xl">code</span></div>
+                        <h3 class="text-2xl font-bold">Web & App Dev</h3>
+                        <p class="text-on-surface-variant my-3">Responsive websites & cross-platform mobile apps.</p><span class="text-emerald-600 text-sm font-semibold">Learn more →</span></div>
+                    <div class="rounded-3xl p-7 bg-white dark:bg-[#131824] border-l-8 border-l-amber-500 shadow-md card-hover">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500/20 to-amber-500/5 flex items-center justify-center text-amber-600 mb-5"><span class="material-symbols-outlined text-3xl">dns</span></div>
+                        <h3 class="text-2xl font-bold">IT Solutions & Cloud</h3>
+                        <p class="text-on-surface-variant my-3">Cloud migration, cybersecurity, and enterprise infrastructure.</p><span class="text-amber-600 text-sm font-semibold">Learn more →</span></div>
+                    <div class="rounded-3xl p-7 bg-white dark:bg-[#131824] border-l-8 border-l-rose-500 shadow-md card-hover">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-rose-500/20 to-rose-500/5 flex items-center justify-center text-rose-600 mb-5"><span class="material-symbols-outlined text-3xl">trending_up</span></div>
+                        <h3 class="text-2xl font-bold">SEO & Marketing</h3>
+                        <p class="text-on-surface-variant my-3">Data-driven SEO to boost your online visibility.</p><span class="text-rose-600 text-sm font-semibold">Learn more →</span></div>
+                    <div class="rounded-3xl p-7 bg-white dark:bg-[#131824] border-l-8 border-l-purple-500 shadow-md card-hover">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500/20 to-purple-500/5 flex items-center justify-center text-purple-600 mb-5"><span class="material-symbols-outlined text-3xl">terminal</span></div>
+                        <h3 class="text-2xl font-bold">Software Services</h3>
+                        <p class="text-on-surface-variant my-3">Custom software, automation, and API integrations.</p><span class="text-purple-600 text-sm font-semibold">Learn more →</span></div>
+                    <div class="rounded-3xl p-7 bg-white dark:bg-[#131824] border-l-8 border-l-teal-500 shadow-md card-hover">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-teal-500/20 to-teal-500/5 flex items-center justify-center text-teal-600 mb-5"><span class="material-symbols-outlined text-3xl">support_agent</span></div>
+                        <h3 class="text-2xl font-bold">IT Support & Admin</h3>
+                        <p class="text-on-surface-variant my-3">24/7 technical support and digital administration.</p><span class="text-teal-600 text-sm font-semibold">Learn more →</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Specialized Online Services (Expanded) -->
+        <section id="online-services" class="py-20 px-5 md:px-16 bg-gradient-to-r from-primary/5 to-accent/5">
+            <div class="max-w-[1440px] mx-auto">
+                <div class="text-center mb-14">
+                    <h2 class="text-3xl md:text-4xl font-bold">🌐 Specialized <span class="gradient-text">Online Services</span></h2>
+                    <p class="text-on-surface-variant mt-2">Complete digital assistance: Data entry, Biodata, PDF tools, PPT, Document Editing & More</p>
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+                    <div class="bg-white dark:bg-[#1e2538] p-5 rounded-2xl text-center shadow-md hover:scale-105 transition"><span class="material-symbols-outlined text-primary text-4xl">edit_note</span>
+                        <p class="font-bold mt-2">Online Form Filling</p>
+                    </div>
+                    <div class="bg-white dark:bg-[#1e2538] p-5 rounded-2xl text-center shadow-md hover:scale-105"><span class="material-symbols-outlined text-primary text-4xl">keyboard</span>
+                        <p class="font-bold">Data Entry Services</p>
+                    </div>
+                    <div class="bg-white dark:bg-[#1e2538] p-5 rounded-2xl text-center shadow-md"><span class="material-symbols-outlined text-primary text-4xl">app_registration</span>
+                        <p class="font-bold">Online Registration</p>
+                    </div>
+                    <div class="bg-white dark:bg-[#1e2538] p-5 rounded-2xl text-center shadow-md"><span class="material-symbols-outlined text-primary text-4xl">badge</span>
+                        <p class="font-bold">Resume/CV Creation</p>
+                    </div>
+                    <div class="bg-white dark:bg-[#1e2538] p-5 rounded-2xl text-center shadow-md"><span class="material-symbols-outlined text-primary text-4xl">picture_as_pdf</span>
+                        <p class="font-bold">PDF to Word/Image</p>
+                    </div>
+                    <div class="bg-white dark:bg-[#1e2538] p-5 rounded-2xl text-center shadow-md"><span class="material-symbols-outlined text-primary text-4xl">description</span>
+                        <p class="font-bold">Marriage Biodata</p>
+                    </div>
+                    <div class="bg-white dark:bg-[#1e2538] p-5 rounded-2xl text-center shadow-md"><span class="material-symbols-outlined text-primary text-4xl">image_search</span>
+                        <p class="font-bold">Image to PDF</p>
+                    </div>
+                    <div class="bg-white dark:bg-[#1e2538] p-5 rounded-2xl text-center shadow-md"><span class="material-symbols-outlined text-primary text-4xl">slideshow</span>
+                        <p class="font-bold">PPT Creation</p>
+                    </div>
+                    <div class="bg-white dark:bg-[#1e2538] p-5 rounded-2xl text-center shadow-md"><span class="material-symbols-outlined text-primary text-4xl">table_view</span>
+                        <p class="font-bold">Excel Management</p>
+                    </div>
+                    <div class="bg-white dark:bg-[#1e2538] p-5 rounded-2xl text-center shadow-md"><span class="material-symbols-outlined text-primary text-4xl">folder_shared</span>
+                        <p class="font-bold">Digital Documentation</p>
+                    </div>
+                    <div class="bg-white dark:bg-[#1e2538] p-5 rounded-2xl text-center shadow-md"><span class="material-symbols-outlined text-primary text-4xl">translate</span>
+                        <p class="font-bold">Typing & Transcription</p>
+                    </div>
+                    <div class="bg-white dark:bg-[#1e2538] p-5 rounded-2xl text-center shadow-md"><span class="material-symbols-outlined text-primary text-4xl">cloud_upload</span>
+                        <p class="font-bold">Cloud Document Scan</p>
+                    </div>
+                    <div class="bg-white dark:bg-[#1e2538] p-5 rounded-2xl text-center shadow-md"><span class="material-symbols-outlined text-primary text-4xl">qr_code_scanner</span>
+                        <p class="font-bold">QR & Barcode Design</p>
+                    </div>
+                    <div class="bg-white dark:bg-[#1e2538] p-5 rounded-2xl text-center shadow-md"><span class="material-symbols-outlined text-primary text-4xl">engineering</span>
+                        <p class="font-bold">Virtual Assistant</p>
+                    </div>
+                    <div class="bg-white dark:bg-[#1e2538] p-5 rounded-2xl text-center shadow-md"><span class="material-symbols-outlined text-primary text-4xl">folder_copy</span>
+                        <p class="font-bold">Data Cleaning</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="py-20 px-5 md:px-16 bg-white dark:bg-[#0a0f1a]">
+            <div class="max-w-[1440px] mx-auto">
+                <div class="flex flex-wrap justify-between items-end mb-12">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold">Our <span class="gradient-text">Creative Portfolio</span></h2>
+                        <p class="text-on-surface-variant">Web, App & Branding projects</p>
+                    </div>
+                    <div class="flex gap-2"><button class="filter-btn px-5 py-2 rounded-full bg-primary text-white" data-filter="all">All</button><button class="filter-btn px-5 py-2 rounded-full bg-gray-200 dark:bg-gray-800" data-filter="web">Web</button><button class="filter-btn px-5 py-2 rounded-full bg-gray-200 dark:bg-gray-800"
+                            data-filter="app">App</button></div>
+                </div>
+                <div id="portfolioGrid" class="grid md:grid-cols-3 gap-8"></div>
+                <div class="text-center mt-8 text-sm"><span class="bg-primary/10 px-4 py-2 rounded-full">✨ Total views: <span id="viewCount">2047</span></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form With theme colors and click to call/email -->
+        <section id="contact" class="py-20 px-5 md:px-16">
+            <div class="max-w-[1440px] mx-auto grid lg:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold">Let's <span class="gradient-text">Collaborate</span></h2>
+                    <p class="mt-4 text-on-surface-variant">Reach out for a free consultation. We'll get back within 24h.</p>
+                    <div class="mt-8 space-y-5">
+                        <!-- Click to email -->
+                        <a href="mailto:badrinathgore2002@gmail.com" class="flex gap-3 items-center group transition hover:translate-x-1"><span class="material-symbols-outlined text-primary">mail</span><span class="text-on-surface-variant group-hover:text-primary">badrinathgore2002@gmail.com</span></a>
+                        <!-- Click to call -->
+                        <a href="tel:+919067168044" class="flex gap-3 items-center group transition hover:translate-x-1"><span class="material-symbols-outlined text-primary">call</span><span class="text-on-surface-variant group-hover:text-primary">+91 90671 68044</span></a>
+                        <div class="flex gap-5 pt-4">
+                            <a href="#" target="_blank" class="social-icon text-2xl text-gray-600 dark:text-gray-300 hover:text-primary"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" target="_blank" class="social-icon text-2xl text-gray-600 dark:text-gray-300 hover:text-primary"><i class="fab fa-instagram"></i></a>
+                            <a href="#" target="_blank" class="social-icon text-2xl text-gray-600 dark:text-gray-300 hover:text-primary"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" target="_blank" class="social-icon text-2xl text-gray-600 dark:text-gray-300 hover:text-primary"><i class="fab fa-twitter"></i></a>
+                            <a href="#" target="_blank" class="social-icon text-2xl text-gray-600 dark:text-gray-300 hover:text-primary"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-[#131824] p-8 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-800">
+                    <form id="contactForm" class="space-y-4">
+                        <div class="grid sm:grid-cols-2 gap-4"><input id="name" type="text" placeholder="Full Name" class="w-full p-3 border rounded-xl dark:bg-[#1a202c] dark:border-gray-700" required><input id="email" type="email" placeholder="Email" class="w-full p-3 border rounded-xl dark:bg-[#1a202c] dark:border-gray-700"
+                                required></div>
+                        <input id="phone" placeholder="Phone" class="w-full p-3 border rounded-xl dark:bg-[#1a202c] dark:border-gray-700">
+                        <select id="service" class="w-full p-3 border rounded-xl dark:bg-[#1a202c]"><option>Web Development</option><option>Data Entry / Biodata</option><option>PDF/PPT Service</option><option>IT Consulting</option></select>
+                        <textarea id="message" rows="3" placeholder="Project details..." class="w-full p-3 border rounded-xl dark:bg-[#1a202c]"></textarea>
+                        <button type="submit" class="w-full bg-primary text-white py-3 rounded-xl font-bold flex justify-center gap-2 hover:shadow-lg transition">Send <span class="material-symbols-outlined">send</span></button>
+                        <p id="formFeedback" class="text-sm text-center"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#0b1320] text-white pt-16 pb-8 px-5 md:px-16">
+        <div class="max-w-[1440px] mx-auto grid md:grid-cols-4 gap-8">
+            <div>
+                <div class="flex items-center gap-2"> <img alt="Logo" class="w-10 h-10 rounded-xl object-cover shadow-md" src="images/G-Tech.png">
+                    <span class="font-bold text-xl">G-Tech Digital</span></div>
+                <p class="text-white/50 text-sm mt-2">Design. Develop. Digitize.</p>
+            </div>
+            <div>
+                <h4 class="font-semibold">Services</h4>
+                <ul class="text-white/50 text-sm mt-2 space-y-1">
+                    <li>Data Entry & Biodata</li>
+                    <li>PDF/Image Conversion</li>
+                    <li>PPT & Documentation</li>
+                    <li>Web & App Dev</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold">Support</h4>
+                <ul class="text-white/50 text-sm mt-2">
+                    <li>FAQs</li>
+                    <li>Privacy Policy</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold">Newsletter</h4>
+                <div class="flex mt-2"><input id="newsEmail" type="email" placeholder="Email" class="p-2 rounded-l w-full bg-white/10"><button id="newsBtn" class="bg-primary px-3 rounded-r">Join</button></div>
+                <p id="newsMsg" class="text-xs text-green-400 mt-1"></p>
+            </div>
+        </div>
+        <div class="text-center text-white/40 text-sm mt-12">© <span id="currentYear"></span> G-Tech Digital Online Services — All rights reserved.</div>
+
+    </footer>
+
+    <script>
+        // Dynamically set the current year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        // Portfolio data
+        var portfolioItems = [{
+            title: "FinTech Hub",
+            category: "web",
+            img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDvtqqbOq2MJ5ky6DJ-BHe4yFkenZdxKpx33VhA7UqmfrWPMB2tUr9SrEIvutaMUpwNe6dM2IRKLLUjp1OfQ45MOl0UwldJXxFHahuU43aSyf99hMQxuFNKdsvOJDFVlpWyAed5Pmc6_0A36gKuuUJvU7HbpxkJ3ti5YJoP2f3iZdh8FlfnuAvVT4__fCUwj4MBljAchVBJKA9KA4d1FEeFMXYOblf-JQCAunPvfk6MYYbcCMziUCheMTsx-u7gOVMYE1obZS6x_Sc"
+        }, {
+            title: "Luxe Retail App",
+            category: "app",
+            img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCVYSWaDtuday47eIIYXrMzl4RAZXF0IY1iIZDwxYG9pbrC5AsIjyrEbtQ5tFitnFcIt-KPkbTc1M_DGyHED2g3pHvTDgr67yYGuB1ksE6o-gqaNcUCe2CbyKW_qBw7ZGutRa6eam04IosBVl-1Yvq7yn64A52FcvYKAcxXu9eX0bZdlfyGIQcD4D9gRHA1o8lSunZySFAt-ROmfbIs2cWxXSnJgBcQzSqA36rYRIH5UlvsRkzamEStkFTVJ_b3GhJHUuu0Zj-2Zow"
+        }, {
+            title: "Global Logistics ID",
+            category: "web",
+            img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBr29bs3sr1a8Q5lK86XM19R_VFf3smJmec92pXBCnMgsI-OZZZfPgRjsMqBo69SxP377oBdJ_cEWQRbyU1AeP6bMJc0mELMhfJhh7hwRbqJvIip0yX3kCIPjXnv2YtaL6vjeBNCgpc9slMxfWzHlEcKenlT1sUUJkCrejweUx8NOpc7Buka8HpBQFYwpCknmbCrL8F8OJxrgqMgzYp6Uc9eDun7-GNmr5fHV12N554gwg0gwXZkq9MEpjtXQdCGfbOJB5I54eMU2o"
+        }];
+
+        function renderPortfolio(filter) {
+            var filtered = (filter === 'all') ? portfolioItems : portfolioItems.filter(function(item) {
+                return item.category === filter;
+            });
+            var html = '';
+            for (var i = 0; i < filtered.length; i++) {
+                html += '<div class="rounded-2xl overflow-hidden shadow-md group"><img src="' + filtered[i].img + '" class="w-full aspect-video object-cover group-hover:scale-105 transition"><div class="p-4 bg-white dark:bg-gray-800"><h3 class="font-bold">' + filtered[i].title + '</h3><span class="text-xs text-primary">' + filtered[i].category + '</span></div></div>';
+            }
+            document.getElementById('portfolioGrid').innerHTML = html;
+        }
+        var filterBtns = document.querySelectorAll('.filter-btn');
+        for (var i = 0; i < filterBtns.length; i++) {
+            filterBtns[i].addEventListener('click', function(e) {
+                var filterVal = this.getAttribute('data-filter');
+                renderPortfolio(filterVal);
+                for (var j = 0; j < filterBtns.length; j++) {
+                    filterBtns[j].classList.remove('bg-primary', 'text-white');
+                    filterBtns[j].classList.add('bg-gray-200', 'dark:bg-gray-800');
+                }
+                this.classList.add('bg-primary', 'text-white');
+            });
+        }
+        renderPortfolio('all');
+        var views = window.AppDB.incrementPortfolioView();
+        document.getElementById('viewCount').innerText = views;
+
+        // Contact Form
+        document.getElementById('contactForm').addEventListener('submit', function(ev) {
+            ev.preventDefault();
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            if (!name || !email) {
+                document.getElementById('formFeedback').innerHTML = '<span class="text-red-500">Name & email required</span>';
+                return;
+            }
+            window.AppDB.saveContact({
+                name: name,
+                email: email,
+                phone: document.getElementById('phone').value,
+                service: document.getElementById('service').value,
+                msg: document.getElementById('message').value
+            });
+            document.getElementById('formFeedback').innerHTML = '<span class="text-green-600">✅ Message sent! We will contact you soon.</span>';
+            document.getElementById('contactForm').reset();
+            setTimeout(function() {
+                document.getElementById('formFeedback').innerHTML = '';
+            }, 4000);
+        });
+        // Newsletter
+        document.getElementById('newsBtn').addEventListener('click', async function() {
+            var email = document.getElementById('newsEmail').value;
+            if (!email) return;
+            var res = await window.mockApi.subscribe(email);
+            document.getElementById('newsMsg').innerText = res.msg;
+            document.getElementById('newsEmail').value = '';
+        });
+
+        // Dark mode
+        var darkToggle = document.getElementById('darkModeToggle');
+        var themeIcon = document.getElementById('themeIcon');
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark');
+            themeIcon.innerText = 'light_mode';
+        } else {
+            themeIcon.innerText = 'dark_mode';
+        }
+        darkToggle.addEventListener('click', function() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                themeIcon.innerText = 'dark_mode';
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                themeIcon.innerText = 'light_mode';
+            }
+        });
+
+        // Mobile drawer
+        var drawer = document.getElementById('mobileDrawer');
+        var overlay = document.getElementById('mobileDrawerOverlay');
+        var openBtn = document.getElementById('mobileMenuBtn');
+        var closeDrawerBtn = document.getElementById('closeDrawerBtn');
+
+        function openDrawer() {
+            drawer.classList.remove('-translate-x-full');
+            overlay.classList.remove('hidden');
+            document.body.classList.add('mobile-drawer-open');
+        }
+
+        function closeDrawerFunc() {
+            drawer.classList.add('-translate-x-full');
+            overlay.classList.add('hidden');
+            document.body.classList.remove('mobile-drawer-open');
+        }
+        if (openBtn) openBtn.addEventListener('click', openDrawer);
+        if (closeDrawerBtn) closeDrawerBtn.addEventListener('click', closeDrawerFunc);
+        if (overlay) overlay.addEventListener('click', closeDrawerFunc);
+        document.querySelectorAll('#mobileDrawer a').forEach(l => l.addEventListener('click', closeDrawerFunc));
+        // Scroll top
+        var scrollBtn = document.getElementById('scrollTopBtn');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 400) scrollBtn.classList.add('show');
+            else scrollBtn.classList.remove('show');
+        });
+        scrollBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+
+</html>
