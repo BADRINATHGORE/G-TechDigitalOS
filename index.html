@@ -4,7 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>G-Tech Digital | Premium Digital & Online Services</title>
+    <title>G-Tech Digital Online Services</title>
+    <link rel="icon" type="image/png" href="images/G-Tech.png">
+
+    <!-- Optional for Apple Devices -->
+    <link rel="apple-touch-icon" href="images/G-Tech.png">
     <!-- Google Fonts & Material Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Material+Symbols+Outlined:opsz,wght,FILL@24,400,0;24,500,0;24,600,1" rel="stylesheet">
     <!-- Font Awesome 6 (Free) for latest social icons -->
@@ -227,12 +231,7 @@
                 }
             };
             window.AppDB.init();
-            window.mockApi = {
-                subscribe: (email) => new Promise(resolve => setTimeout(() => resolve({
-                    ok: true,
-                    msg: `🙏 Thanks for joining, ${email}! You're now part of G-Tech Digital community.`
-                }), 300))
-            };
+
         })();
     </script>
 
@@ -250,8 +249,13 @@
     <header class="fixed top-0 left-0 w-full z-50 glass-nav shadow-sm">
         <div class="max-w-[1440px] mx-auto px-5 md:px-116 py-3 flex justify-between items-center">
             <div class="flex items-center gap-2">
-                <img alt="Logo" class="w-10 h-10 rounded-xl object-cover shadow-md" src="images/G-Tech.png">
-                <span class="text-xl md:text-2xl font-extrabold gradient-text">G-Tech Digital</span>
+                <a href="index.html" class="flex items-center gap-2">
+                    <img alt="Logo" class="w-10 h-10 rounded-xl object-cover shadow-md" src="images/G-Tech.png">
+
+                    <span class="text-xl md:text-2xl font-extrabold gradient-text">
+        G-Tech Digital
+    </span>
+                </a>
             </div>
             <!-- Desktop Navigation with clear dark visible links -->
             <nav class="hidden md:flex items-center gap-7">
@@ -262,9 +266,64 @@
                 <a href="#contact" class="text-on-surface dark:text-gray-200 hover:text-primary transition font-medium">Contact</a>
             </nav>
             <div class="flex items-center gap-3">
-                <button id="darkModeToggle" class="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10"><span id="themeIcon" class="material-symbols-outlined">dark_mode</span></button>
-                <button id="mobileMenuBtn" class="md:hidden p-2"><span class="material-symbols-outlined">menu</span></button>
-                <a href="#contact" class="bg-primary text-white px-5 py-2 rounded-full font-semibold text-sm shadow-md hover:shadow-xl hidden sm:inline-block">Get Started</a>
+
+                <!-- Premium Dark Mode Button -->
+                <button id="darkModeToggle" class="group relative overflow-hidden p-3 rounded-2xl border border-white/10 
+        bg-white/70 dark:bg-white/5 backdrop-blur-xl
+        shadow-lg hover:shadow-cyan-500/20
+        hover:scale-105 active:scale-95
+        transition-all duration-300">
+
+        <!-- Glow -->
+        <span class="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-blue-600/10 opacity-0 group-hover:opacity-100 transition duration-300"></span>
+
+        <!-- Icon -->
+        <span id="themeIcon"
+            class="relative material-symbols-outlined text-gray-700 dark:text-white transition duration-300 group-hover:rotate-12">
+            dark_mode
+        </span>
+    </button>
+
+                <!-- Premium Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden group relative overflow-hidden p-3 rounded-2xl border border-white/10 
+        bg-white/70 dark:bg-white/5 backdrop-blur-xl
+        shadow-lg hover:shadow-blue-500/20
+        hover:scale-105 active:scale-95
+        transition-all duration-300">
+
+        <!-- Glow -->
+        <span class="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-indigo-600/10 opacity-0 group-hover:opacity-100 transition duration-300"></span>
+
+        <!-- Icon -->
+        <span class="relative material-symbols-outlined text-gray-700 dark:text-white text-[26px]">
+            menu
+        </span>
+    </button>
+
+                <!-- Premium Get Started Button -->
+                <a href="#contact" class="hidden sm:inline-flex items-center gap-2 group relative overflow-hidden
+        rounded-2xl px-6 py-3
+        bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600
+        text-white font-bold text-sm tracking-wide
+        shadow-[0_10px_35px_rgba(0,140,255,0.35)]
+        hover:shadow-[0_15px_45px_rgba(0,140,255,0.5)]
+        hover:scale-105 active:scale-95
+        transition-all duration-300">
+
+                    <!-- Animated Shine -->
+                    <span class="absolute inset-0 overflow-hidden rounded-2xl">
+            <span class="absolute -left-20 top-0 h-full w-16 rotate-12 bg-white/20 blur-md transition-all duration-700 group-hover:left-[120%]"></span>
+                    </span>
+
+                    <!-- Text -->
+                    <span class="relative">Get Started</span>
+
+                    <!-- Arrow Icon -->
+                    <span class="relative material-symbols-outlined text-[20px] transition duration-300 group-hover:translate-x-1">
+            arrow_forward
+        </span>
+                </a>
+
             </div>
         </div>
     </header>
@@ -292,13 +351,138 @@
 
     <main>
         <!-- Hero Section -->
-        <section id="home" class="pt-32 md:pt-48 pb-20 hero-gradient px-5 md:px-16">
+        <section id="home" class="pt-32 md:pt-42 pb-20 hero-gradient px-5 md:px-16">
             <div class="max-w-[1440px] mx-auto grid lg:grid-cols-2 gap-12 items-center">
                 <div class="space-y-6">
-                    <div class="inline-flex bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold"><span class="material-symbols-outlined text-[18px] mr-1">verified</span> Trusted Partner for Digital Innovation</div>
-                    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">Premium Digital & <span class="gradient-text">Online Services Suite</span></h1>
-                    <p class="text-lg text-on-surface-variant max-w-xl">Graphic Design | Web & App Dev | IT Solutions | Data Entry | PDF Tools | Biodata | PPT & more.</p>
-                    <div class="flex flex-wrap gap-4"><a href="#services" class="bg-primary text-white px-7 py-3.5 rounded-xl font-semibold flex gap-2 shadow-md hover:shadow-lg btn-pulse">Explore All <span class="material-symbols-outlined">arrow_forward</span></a><a href="#contact" class="border-2 border-primary/50 px-7 py-3.5 rounded-xl font-semibold hover:bg-primary/5">Contact Us</a></div>
+                    <!-- Premium Badge -->
+                    <div class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full
+    text-sm font-semibold
+    text-cyan-600 dark:text-cyan-300
+    bg-white/10 dark:bg-white/5
+    backdrop-blur-xl
+    border border-cyan-400/20
+    shadow-[0_8px_30px_rgba(0,140,255,0.15)]
+    hover:shadow-[0_10px_40px_rgba(0,140,255,0.25)]
+    transition-all duration-300">
+
+                        <!-- Icon -->
+                        <span class="material-symbols-outlined text-[18px] text-cyan-500 animate-pulse">
+        verified
+    </span>
+
+                        <!-- Text -->
+                        <span class="tracking-wide">
+        Trusted Partner for Digital Innovation
+    </span>
+
+                    </div>
+                    <!-- Premium Hero Text -->
+                    <div class="space-y-6">
+
+                        <!-- Main Heading -->
+                        <h1 class="text-4xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
+
+                            Premium Digital &
+                            <span class="block mt-2 bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 
+            bg-clip-text text-transparent animate-fade-in">
+
+            Online Services Suite
+
+        </span>
+
+                        </h1>
+
+                        <!-- Description -->
+                        <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 
+        max-w-2xl leading-8">
+
+                            <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 
+max-w-2xl leading-8 animate-[fadeInUp_1.4s_ease-out]">
+
+                                We deliver modern digital solutions including
+                                <span class="font-semibold text-primary">Software / IT Services</span>,
+                                <span class="font-semibold text-primary">Online Form Filling</span>,
+                                <span class="font-semibold text-primary">Graphic Design</span>,
+                                <span class="font-semibold text-primary">Marriage Biodata / Resume</span>,
+                                <span class="font-semibold text-primary">Documentation & Scanning</span>,
+                                <span class="font-semibold text-primary">Many Others</span> designed to simplify your digital needs with speed and quality.
+
+                            </p>
+                        </p>
+
+                        <!-- Highlight Tags -->
+                        <div class="flex flex-wrap gap-2 pt-2">
+
+                            <span class="px-4 py-1.5 text-sm rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-300 border border-cyan-500/20">
+            Software / IT Services
+        </span>
+
+                            <span class="px-4 py-1.5 text-sm rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-300 border border-blue-500/20">
+            Online Form Filling
+        </span>
+
+                            <span class="px-4 py-1.5 text-sm rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-300 border border-indigo-500/20">
+            Graphic Design
+        </span>
+
+                            <span class="px-4 py-1.5 text-sm rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-300 border border-emerald-500/20">
+            Data Entry
+        </span>
+
+
+
+                        </div>
+
+                    </div>
+                    <!-- Premium Button Group -->
+                    <div class="flex flex-wrap gap-5">
+
+                        <!-- Primary Button -->
+                        <a href="#services" class="group relative overflow-hidden flex items-center gap-2
+        px-8 py-3.5 rounded-2xl font-bold text-white
+        bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600
+        shadow-[0_10px_35px_rgba(0,140,255,0.35)]
+        hover:shadow-[0_15px_55px_rgba(0,140,255,0.55)]
+        hover:scale-105 active:scale-95
+        transition-all duration-300">
+
+                            <!-- Shine Effect -->
+                            <span class="absolute inset-0 overflow-hidden rounded-2xl">
+            <span class="absolute -left-20 top-0 h-full w-16 rotate-12 bg-white/20 blur-md transition-all duration-700 group-hover:left-[120%]"></span>
+                            </span>
+
+                            <!-- Text -->
+                            <span class="relative">Explore All</span>
+
+                            <!-- Icon -->
+                            <span class="relative material-symbols-outlined group-hover:translate-x-1 transition duration-300">
+            arrow_forward
+        </span>
+
+                        </a>
+
+                        <!-- Secondary Button -->
+                        <a href="#contact" class="group relative overflow-hidden flex items-center gap-2
+        px-8 py-3.5 rounded-2xl font-semibold
+        text-primary dark:text-white
+        border border-primary/40 dark:border-white/20
+        bg-white/60 dark:bg-white/5 backdrop-blur-xl
+        hover:bg-white/80 dark:hover:bg-white/10
+        hover:scale-105 active:scale-95
+        transition-all duration-300">
+
+                            <!-- Glow Hover -->
+                            <span class="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-blue-600/10 opacity-0 group-hover:opacity-100 transition duration-300"></span>
+
+                            <span class="relative">Contact Us</span>
+
+                            <span class="relative material-symbols-outlined group-hover:rotate-12 transition duration-300">
+            call
+        </span>
+
+                        </a>
+
+                    </div>
                 </div>
                 <div class="relative">
                     <div class="rounded-3xl overflow-hidden shadow-2xl"><img class="w-full aspect-[4/3] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBikxeSs3uoDIZaOhpk_LFenvw3HIbMRHbzk3Sl-t4O03ZL4s2TUn2qaRvyvijCxdLWk8Kj6iYuLV4e4goOxSioWkeAU7WOkYyl7n-uH2c4YWG1o0_tgiUMUccobBo25JZ_qByCMA5sH7IcXXz-NuRZiZDbiwYk7eUO6NJ3-kDldB5GLoD8Pk3ueSxKWsaHNVLwoEDxJXpzK7ll91myM58ptxuAo332whk85J6YJ2eincdHbxbNuv1r2xQA3ksXK7tQrrkPGd7wvyI"
@@ -308,146 +492,515 @@
         </section>
 
         <!-- Core Services -->
-        <section id="services" class="py-20 px-5 md:px-16 bg-surface-container-lowest">
+        <section id="services" class="py-24 px-5 md:px-16 bg-gradient-to-b from-white via-blue-50/40 to-white dark:from-[#0a0f1a] dark:via-[#0f172a] dark:to-[#0a0f1a]">
             <div class="max-w-[1440px] mx-auto">
+
+                <!-- Header -->
                 <div class="text-center max-w-2xl mx-auto mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold">Our <span class="gradient-text">Core Services</span></h2>
-                    <p class="text-on-surface-variant mt-3">Powering business growth with modern tech & creative solutions.</p>
+                    <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight">
+                        Our <span class="gradient-text">Core Services</span>
+                    </h2>
+                    <p class="text-on-surface-variant mt-4 text-lg">
+                        Powering business growth with modern tech & creative solutions.
+                    </p>
                 </div>
-                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="rounded-3xl p-7 bg-white dark:bg-[#131824] border-l-8 border-l-primary shadow-md card-hover">
-                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/20 to-blue-500/5 flex items-center justify-center text-primary mb-5"><span class="material-symbols-outlined text-3xl">palette</span></div>
-                        <h3 class="text-2xl font-bold">Graphic Design</h3>
-                        <p class="text-on-surface-variant my-3">Logos, branding, and visuals that tell your story.</p><span class="text-primary text-sm font-semibold">Learn more →</span></div>
-                    <div class="rounded-3xl p-7 bg-white dark:bg-[#131824] border-l-8 border-l-emerald-600 shadow-md card-hover">
-                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-emerald-500/5 flex items-center justify-center text-emerald-600 mb-5"><span class="material-symbols-outlined text-3xl">code</span></div>
-                        <h3 class="text-2xl font-bold">Web & App Dev</h3>
-                        <p class="text-on-surface-variant my-3">Responsive websites & cross-platform mobile apps.</p><span class="text-emerald-600 text-sm font-semibold">Learn more →</span></div>
-                    <div class="rounded-3xl p-7 bg-white dark:bg-[#131824] border-l-8 border-l-amber-500 shadow-md card-hover">
-                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500/20 to-amber-500/5 flex items-center justify-center text-amber-600 mb-5"><span class="material-symbols-outlined text-3xl">dns</span></div>
-                        <h3 class="text-2xl font-bold">IT Solutions & Cloud</h3>
-                        <p class="text-on-surface-variant my-3">Cloud migration, cybersecurity, and enterprise infrastructure.</p><span class="text-amber-600 text-sm font-semibold">Learn more →</span></div>
-                    <div class="rounded-3xl p-7 bg-white dark:bg-[#131824] border-l-8 border-l-rose-500 shadow-md card-hover">
-                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-rose-500/20 to-rose-500/5 flex items-center justify-center text-rose-600 mb-5"><span class="material-symbols-outlined text-3xl">trending_up</span></div>
-                        <h3 class="text-2xl font-bold">SEO & Marketing</h3>
-                        <p class="text-on-surface-variant my-3">Data-driven SEO to boost your online visibility.</p><span class="text-rose-600 text-sm font-semibold">Learn more →</span></div>
-                    <div class="rounded-3xl p-7 bg-white dark:bg-[#131824] border-l-8 border-l-purple-500 shadow-md card-hover">
-                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500/20 to-purple-500/5 flex items-center justify-center text-purple-600 mb-5"><span class="material-symbols-outlined text-3xl">terminal</span></div>
-                        <h3 class="text-2xl font-bold">Software Services</h3>
-                        <p class="text-on-surface-variant my-3">Custom software, automation, and API integrations.</p><span class="text-purple-600 text-sm font-semibold">Learn more →</span></div>
-                    <div class="rounded-3xl p-7 bg-white dark:bg-[#131824] border-l-8 border-l-teal-500 shadow-md card-hover">
-                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-teal-500/20 to-teal-500/5 flex items-center justify-center text-teal-600 mb-5"><span class="material-symbols-outlined text-3xl">support_agent</span></div>
-                        <h3 class="text-2xl font-bold">IT Support & Admin</h3>
-                        <p class="text-on-surface-variant my-3">24/7 technical support and digital administration.</p><span class="text-teal-600 text-sm font-semibold">Learn more →</span></div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Specialized Online Services (Expanded) -->
-        <section id="online-services" class="py-20 px-5 md:px-16 bg-gradient-to-r from-primary/5 to-accent/5">
-            <div class="max-w-[1440px] mx-auto">
-                <div class="text-center mb-14">
-                    <h2 class="text-3xl md:text-4xl font-bold">🌐 Specialized <span class="gradient-text">Online Services</span></h2>
-                    <p class="text-on-surface-variant mt-2">Complete digital assistance: Data entry, Biodata, PDF tools, PPT, Document Editing & More</p>
-                </div>
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-                    <div class="bg-white dark:bg-[#1e2538] p-5 rounded-2xl text-center shadow-md hover:scale-105 transition"><span class="material-symbols-outlined text-primary text-4xl">edit_note</span>
-                        <p class="font-bold mt-2">Online Form Filling</p>
-                    </div>
-                    <div class="bg-white dark:bg-[#1e2538] p-5 rounded-2xl text-center shadow-md hover:scale-105"><span class="material-symbols-outlined text-primary text-4xl">keyboard</span>
-                        <p class="font-bold">Data Entry Services</p>
-                    </div>
-                    <div class="bg-white dark:bg-[#1e2538] p-5 rounded-2xl text-center shadow-md"><span class="material-symbols-outlined text-primary text-4xl">app_registration</span>
-                        <p class="font-bold">Online Registration</p>
-                    </div>
-                    <div class="bg-white dark:bg-[#1e2538] p-5 rounded-2xl text-center shadow-md"><span class="material-symbols-outlined text-primary text-4xl">badge</span>
-                        <p class="font-bold">Resume/CV Creation</p>
-                    </div>
-                    <div class="bg-white dark:bg-[#1e2538] p-5 rounded-2xl text-center shadow-md"><span class="material-symbols-outlined text-primary text-4xl">picture_as_pdf</span>
-                        <p class="font-bold">PDF to Word/Image</p>
-                    </div>
-                    <div class="bg-white dark:bg-[#1e2538] p-5 rounded-2xl text-center shadow-md"><span class="material-symbols-outlined text-primary text-4xl">description</span>
-                        <p class="font-bold">Marriage Biodata</p>
-                    </div>
-                    <div class="bg-white dark:bg-[#1e2538] p-5 rounded-2xl text-center shadow-md"><span class="material-symbols-outlined text-primary text-4xl">image_search</span>
-                        <p class="font-bold">Image to PDF</p>
-                    </div>
-                    <div class="bg-white dark:bg-[#1e2538] p-5 rounded-2xl text-center shadow-md"><span class="material-symbols-outlined text-primary text-4xl">slideshow</span>
-                        <p class="font-bold">PPT Creation</p>
-                    </div>
-                    <div class="bg-white dark:bg-[#1e2538] p-5 rounded-2xl text-center shadow-md"><span class="material-symbols-outlined text-primary text-4xl">table_view</span>
-                        <p class="font-bold">Excel Management</p>
-                    </div>
-                    <div class="bg-white dark:bg-[#1e2538] p-5 rounded-2xl text-center shadow-md"><span class="material-symbols-outlined text-primary text-4xl">folder_shared</span>
-                        <p class="font-bold">Digital Documentation</p>
-                    </div>
-                    <div class="bg-white dark:bg-[#1e2538] p-5 rounded-2xl text-center shadow-md"><span class="material-symbols-outlined text-primary text-4xl">translate</span>
-                        <p class="font-bold">Typing & Transcription</p>
-                    </div>
-                    <div class="bg-white dark:bg-[#1e2538] p-5 rounded-2xl text-center shadow-md"><span class="material-symbols-outlined text-primary text-4xl">cloud_upload</span>
-                        <p class="font-bold">Cloud Document Scan</p>
-                    </div>
-                    <div class="bg-white dark:bg-[#1e2538] p-5 rounded-2xl text-center shadow-md"><span class="material-symbols-outlined text-primary text-4xl">qr_code_scanner</span>
-                        <p class="font-bold">QR & Barcode Design</p>
-                    </div>
-                    <div class="bg-white dark:bg-[#1e2538] p-5 rounded-2xl text-center shadow-md"><span class="material-symbols-outlined text-primary text-4xl">engineering</span>
-                        <p class="font-bold">Virtual Assistant</p>
-                    </div>
-                    <div class="bg-white dark:bg-[#1e2538] p-5 rounded-2xl text-center shadow-md"><span class="material-symbols-outlined text-primary text-4xl">folder_copy</span>
-                        <p class="font-bold">Data Cleaning</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+                <!-- Grid -->
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
 
-        <!-- Portfolio Section -->
-        <section id="portfolio" class="py-20 px-5 md:px-16 bg-white dark:bg-[#0a0f1a]">
-            <div class="max-w-[1440px] mx-auto">
-                <div class="flex flex-wrap justify-between items-end mb-12">
-                    <div>
-                        <h2 class="text-3xl md:text-4xl font-bold">Our <span class="gradient-text">Creative Portfolio</span></h2>
-                        <p class="text-on-surface-variant">Web, App & Branding projects</p>
-                    </div>
-                    <div class="flex gap-2"><button class="filter-btn px-5 py-2 rounded-full bg-primary text-white" data-filter="all">All</button><button class="filter-btn px-5 py-2 rounded-full bg-gray-200 dark:bg-gray-800" data-filter="web">Web</button><button class="filter-btn px-5 py-2 rounded-full bg-gray-200 dark:bg-gray-800"
-                            data-filter="app">App</button></div>
-                </div>
-                <div id="portfolioGrid" class="grid md:grid-cols-3 gap-8"></div>
-                <div class="text-center mt-8 text-sm"><span class="bg-primary/10 px-4 py-2 rounded-full">✨ Total views: <span id="viewCount">2047</span></span>
-                </div>
-            </div>
-        </section>
+                    <!-- Card -->
+                    <div class="group relative p-[1px] rounded-3xl bg-gradient-to-br from-blue-500/40 via-transparent to-cyan-500/30">
+                        <div class="h-full rounded-3xl p-8 bg-white/80 dark:bg-[#131824]/80 backdrop-blur-xl shadow-xl transition-all duration-300 group-hover:-translate-y-2">
 
-        <!-- Contact Form With theme colors and click to call/email -->
-        <section id="contact" class="py-20 px-5 md:px-16">
-            <div class="max-w-[1440px] mx-auto grid lg:grid-cols-2 gap-12">
-                <div>
-                    <h2 class="text-3xl md:text-4xl font-bold">Let's <span class="gradient-text">Collaborate</span></h2>
-                    <p class="mt-4 text-on-surface-variant">Reach out for a free consultation. We'll get back within 24h.</p>
-                    <div class="mt-8 space-y-5">
-                        <!-- Click to email -->
-                        <a href="mailto:badrinathgore2002@gmail.com" class="flex gap-3 items-center group transition hover:translate-x-1"><span class="material-symbols-outlined text-primary">mail</span><span class="text-on-surface-variant group-hover:text-primary">badrinathgore2002@gmail.com</span></a>
-                        <!-- Click to call -->
-                        <a href="tel:+919067168044" class="flex gap-3 items-center group transition hover:translate-x-1"><span class="material-symbols-outlined text-primary">call</span><span class="text-on-surface-variant group-hover:text-primary">+91 90671 68044</span></a>
-                        <div class="flex gap-5 pt-4">
-                            <a href="#" target="_blank" class="social-icon text-2xl text-gray-600 dark:text-gray-300 hover:text-primary"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" target="_blank" class="social-icon text-2xl text-gray-600 dark:text-gray-300 hover:text-primary"><i class="fab fa-instagram"></i></a>
-                            <a href="#" target="_blank" class="social-icon text-2xl text-gray-600 dark:text-gray-300 hover:text-primary"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" target="_blank" class="social-icon text-2xl text-gray-600 dark:text-gray-300 hover:text-primary"><i class="fab fa-twitter"></i></a>
-                            <a href="#" target="_blank" class="social-icon text-2xl text-gray-600 dark:text-gray-300 hover:text-primary"><i class="fab fa-youtube"></i></a>
+                            <div class="w-14 h-14 rounded-2xl flex items-center justify-center
+                        bg-gradient-to-br from-blue-500/20 to-cyan-500/10 text-primary mb-5
+                        group-hover:scale-110 transition">
+                                <span class="material-symbols-outlined text-3xl">palette</span>
+                            </div>
+
+                            <h3 class="text-2xl font-bold mb-2">Graphic Design</h3>
+                            <p class="text-on-surface-variant mb-4">
+                                Logos, branding, and visuals that tell your story.
+                            </p>
+
+                            <span class="text-primary font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Learn more <span>→</span>
+                            </span>
                         </div>
                     </div>
+
+                    <!-- Card -->
+                    <div class="group relative p-[1px] rounded-3xl bg-gradient-to-br from-emerald-500/40 via-transparent to-green-500/30">
+                        <div class="h-full rounded-3xl p-8 bg-white/80 dark:bg-[#131824]/80 backdrop-blur-xl shadow-xl transition-all duration-300 group-hover:-translate-y-2">
+
+                            <div class="w-14 h-14 rounded-2xl flex items-center justify-center
+                        bg-gradient-to-br from-emerald-500/20 to-green-500/10 text-emerald-600 mb-5
+                        group-hover:scale-110 transition">
+                                <span class="material-symbols-outlined text-3xl">code</span>
+                            </div>
+
+                            <h3 class="text-2xl font-bold mb-2">Web & App Dev</h3>
+                            <p class="text-on-surface-variant mb-4">
+                                Responsive websites & cross-platform mobile apps.
+                            </p>
+
+                            <span class="text-emerald-600 font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Learn more <span>→</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Card -->
+                    <div class="group relative p-[1px] rounded-3xl bg-gradient-to-br from-amber-500/40 via-transparent to-orange-500/30">
+                        <div class="h-full rounded-3xl p-8 bg-white/80 dark:bg-[#131824]/80 backdrop-blur-xl shadow-xl transition-all duration-300 group-hover:-translate-y-2">
+
+                            <div class="w-14 h-14 rounded-2xl flex items-center justify-center
+                        bg-gradient-to-br from-amber-500/20 to-orange-500/10 text-amber-600 mb-5
+                        group-hover:scale-110 transition">
+                                <span class="material-symbols-outlined text-3xl">dns</span>
+                            </div>
+
+                            <h3 class="text-2xl font-bold mb-2">IT Solutions & Cloud</h3>
+                            <p class="text-on-surface-variant mb-4">
+                                Cloud migration, cybersecurity, and enterprise infrastructure.
+                            </p>
+
+                            <span class="text-amber-600 font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Learn more <span>→</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Card -->
+                    <div class="group relative p-[1px] rounded-3xl bg-gradient-to-br from-rose-500/40 via-transparent to-pink-500/30">
+                        <div class="h-full rounded-3xl p-8 bg-white/80 dark:bg-[#131824]/80 backdrop-blur-xl shadow-xl transition-all duration-300 group-hover:-translate-y-2">
+
+                            <div class="w-14 h-14 rounded-2xl flex items-center justify-center
+                        bg-gradient-to-br from-rose-500/20 to-pink-500/10 text-rose-600 mb-5
+                        group-hover:scale-110 transition">
+                                <span class="material-symbols-outlined text-3xl">trending_up</span>
+                            </div>
+
+                            <h3 class="text-2xl font-bold mb-2">SEO & Marketing</h3>
+                            <p class="text-on-surface-variant mb-4">
+                                Data-driven SEO to boost your online visibility.
+                            </p>
+
+                            <span class="text-rose-600 font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Learn more <span>→</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Card -->
+                    <div class="group relative p-[1px] rounded-3xl bg-gradient-to-br from-purple-500/40 via-transparent to-indigo-500/30">
+                        <div class="h-full rounded-3xl p-8 bg-white/80 dark:bg-[#131824]/80 backdrop-blur-xl shadow-xl transition-all duration-300 group-hover:-translate-y-2">
+
+                            <div class="w-14 h-14 rounded-2xl flex items-center justify-center
+                        bg-gradient-to-br from-purple-500/20 to-indigo-500/10 text-purple-600 mb-5
+                        group-hover:scale-110 transition">
+                                <span class="material-symbols-outlined text-3xl">terminal</span>
+                            </div>
+
+                            <h3 class="text-2xl font-bold mb-2">Software Services</h3>
+                            <p class="text-on-surface-variant mb-4">
+                                Custom software, automation, and API integrations.
+                            </p>
+
+                            <span class="text-purple-600 font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Learn more <span>→</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Card -->
+                    <div class="group relative p-[1px] rounded-3xl bg-gradient-to-br from-teal-500/40 via-transparent to-cyan-500/30">
+                        <div class="h-full rounded-3xl p-8 bg-white/80 dark:bg-[#131824]/80 backdrop-blur-xl shadow-xl transition-all duration-300 group-hover:-translate-y-2">
+
+                            <div class="w-14 h-14 rounded-2xl flex items-center justify-center
+                        bg-gradient-to-br from-teal-500/20 to-cyan-500/10 text-teal-600 mb-5
+                        group-hover:scale-110 transition">
+                                <span class="material-symbols-outlined text-3xl">support_agent</span>
+                            </div>
+
+                            <h3 class="text-2xl font-bold mb-2">IT Support & Admin</h3>
+                            <p class="text-on-surface-variant mb-4">
+                                24/7 technical support and digital administration.
+                            </p>
+
+                            <span class="text-teal-600 font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Learn more <span>→</span>
+                            </span>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="bg-white dark:bg-[#131824] p-8 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-800">
-                    <form id="contactForm" class="space-y-4">
-                        <div class="grid sm:grid-cols-2 gap-4"><input id="name" type="text" placeholder="Full Name" class="w-full p-3 border rounded-xl dark:bg-[#1a202c] dark:border-gray-700" required><input id="email" type="email" placeholder="Email" class="w-full p-3 border rounded-xl dark:bg-[#1a202c] dark:border-gray-700"
-                                required></div>
-                        <input id="phone" placeholder="Phone" class="w-full p-3 border rounded-xl dark:bg-[#1a202c] dark:border-gray-700">
-                        <select id="service" class="w-full p-3 border rounded-xl dark:bg-[#1a202c]"><option>Web Development</option><option>Data Entry / Biodata</option><option>PDF/PPT Service</option><option>IT Consulting</option></select>
-                        <textarea id="message" rows="3" placeholder="Project details..." class="w-full p-3 border rounded-xl dark:bg-[#1a202c]"></textarea>
-                        <button type="submit" class="w-full bg-primary text-white py-3 rounded-xl font-bold flex justify-center gap-2 hover:shadow-lg transition">Send <span class="material-symbols-outlined">send</span></button>
-                        <p id="formFeedback" class="text-sm text-center"></p>
+            </div>
+        </section>
+        <!-- Specialized Online Services (Expanded) -->
+        <!-- Specialized Online Services -->
+        <section id="online-services" class="py-24 px-5 md:px-16 bg-gradient-to-b from-white via-blue-50/30 to-white dark:from-[#0a0f1a] dark:via-[#0f172a] dark:to-[#0a0f1a]">
+
+            <div class="max-w-[1440px] mx-auto">
+
+                <!-- HEADER -->
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight">
+                        🌐 Specialized <span class="gradient-text">Online Services</span>
+                    </h2>
+                    <p class="text-on-surface-variant mt-4 text-lg">
+                        Complete digital assistance: Data entry, Biodata, PDF tools, PPT, Document Editing & More
+                    </p>
+                </div>
+
+                <!-- GRID -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+
+                    <!-- CARD 1 -->
+                    <div class="group p-[1px] rounded-2xl bg-gradient-to-br from-cyan-500/20 to-blue-500/10">
+                        <div class="bg-white dark:bg-[#1e2538] rounded-2xl shadow-md
+                    min-h-[150px] flex flex-col items-center justify-center p-4 text-center
+                    transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-2xl">
+
+                            <span class="material-symbols-outlined text-4xl text-cyan-500 transition group-hover:scale-110">
+                        edit_note
+                    </span>
+
+                            <p class="font-semibold mt-3 text-sm sm:text-base">
+                                Online Form Filling
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- CARD 2 -->
+                    <div class="group p-[1px] rounded-2xl bg-gradient-to-br from-emerald-500/30 to-green-500/20">
+                        <div class="bg-white dark:bg-[#1e2538] rounded-2xl shadow-md
+                    min-h-[150px] flex flex-col items-center justify-center p-4 text-center
+                    transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-2xl">
+
+                            <span class="material-symbols-outlined text-4xl text-emerald-500 transition group-hover:scale-110">
+                        keyboard
+                    </span>
+
+                            <p class="font-semibold mt-3 text-sm sm:text-base">
+                                Data Entry Services
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- CARD 3 -->
+                    <div class="group p-[1px] rounded-2xl bg-gradient-to-br from-indigo-500/30 to-blue-500/20">
+                        <div class="bg-white dark:bg-[#1e2538] rounded-2xl shadow-md
+                    min-h-[150px] flex flex-col items-center justify-center p-4 text-center
+                    transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-2xl">
+
+                            <span class="material-symbols-outlined text-4xl text-indigo-500 transition group-hover:scale-110">
+                        app_registration
+                    </span>
+
+                            <p class="font-semibold mt-3 text-sm sm:text-base">
+                                Online Registration
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- CARD 4 -->
+                    <div class="group p-[1px] rounded-2xl bg-gradient-to-br from-pink-500/30 to-rose-500/20">
+                        <div class="bg-white dark:bg-[#1e2538] rounded-2xl shadow-md
+                    min-h-[150px] flex flex-col items-center justify-center p-4 text-center
+                    transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-2xl">
+
+                            <span class="material-symbols-outlined text-4xl text-rose-500 transition group-hover:scale-110">
+                        badge
+                    </span>
+
+                            <p class="font-semibold mt-3 text-sm sm:text-base">
+                                Resume / CV Creation
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- CARD 5 -->
+                    <div class="group p-[1px] rounded-2xl bg-gradient-to-br from-amber-500/30 to-orange-500/20">
+                        <div class="bg-white dark:bg-[#1e2538] rounded-2xl shadow-md
+                    min-h-[150px] flex flex-col items-center justify-center p-4 text-center
+                    transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-2xl">
+
+                            <span class="material-symbols-outlined text-4xl text-amber-500 transition group-hover:scale-110">
+                        picture_as_pdf
+                    </span>
+
+                            <p class="font-semibold mt-3 text-sm sm:text-base">
+                                PDF to Word/Image
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- CARD 6 -->
+                    <div class="group p-[1px] rounded-2xl bg-gradient-to-br from-purple-500/30 to-indigo-500/20">
+                        <div class="bg-white dark:bg-[#1e2538] rounded-2xl shadow-md
+                    min-h-[150px] flex flex-col items-center justify-center p-4 text-center
+                    transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-2xl">
+
+                            <span class="material-symbols-outlined text-4xl text-purple-500 transition group-hover:scale-110">
+                        description
+                    </span>
+
+                            <p class="font-semibold mt-3 text-sm sm:text-base">
+                                Marriage Biodata
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- CARD 7 -->
+                    <div class="group p-[1px] rounded-2xl bg-gradient-to-br from-teal-500/30 to-cyan-500/20">
+                        <div class="bg-white dark:bg-[#1e2538] rounded-2xl shadow-md
+                    min-h-[150px] flex flex-col items-center justify-center p-4 text-center
+                    transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-2xl">
+
+                            <span class="material-symbols-outlined text-4xl text-teal-500 transition group-hover:scale-110">
+                        engineering
+                    </span>
+
+                            <p class="font-semibold mt-3 text-sm sm:text-base">
+                                Virtual Assistant
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- CARD 8 -->
+                    <div class="group p-[1px] rounded-2xl bg-gradient-to-br from-sky-500/30 to-blue-500/20">
+                        <div class="bg-white dark:bg-[#1e2538] rounded-2xl shadow-md
+                    min-h-[150px] flex flex-col items-center justify-center p-4 text-center
+                    transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-2xl">
+
+                            <span class="material-symbols-outlined text-4xl text-sky-500 transition group-hover:scale-110">
+                        slideshow
+                    </span>
+
+                            <p class="font-semibold mt-3 text-sm sm:text-base">
+                                PPT Creation
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="py-20 px-5 md:px-16 bg-gradient-to-b from-white to-slate-50 dark:from-[#0a0f1a] dark:to-[#0d1424]">
+            <div class="max-w-[1440px] mx-auto">
+
+                <!-- Header -->
+                <div class="flex flex-wrap justify-between items-end mb-12 gap-6">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold">
+                            Our <span class="gradient-text">Creative Portfolio</span>
+                        </h2>
+                        <p class="text-on-surface-variant mt-2">
+                            Web, App & Branding projects crafted with precision
+                        </p>
+                    </div>
+
+                    <!-- Filter Buttons -->
+                    <div class="flex flex-wrap gap-3">
+                        <button class="filter-btn px-6 py-2 rounded-full bg-primary text-white shadow-md hover:scale-105 transition" data-filter="all">
+                    All
+                </button>
+                        <button class="filter-btn px-6 py-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-primary hover:text-white transition shadow-sm hover:scale-105" data-filter="web">
+                    Web
+                </button>
+                        <button class="filter-btn px-6 py-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-primary hover:text-white transition shadow-sm hover:scale-105" data-filter="app">
+                    App
+                </button>
+                    </div>
+                </div>
+
+                <!-- Portfolio Grid -->
+                <div id="portfolioGrid" class="grid md:grid-cols-3 gap-8">
+
+                    <!-- Card Example -->
+                    <div class="group relative rounded-3xl overflow-hidden bg-white dark:bg-[#121a2a] shadow-lg hover:shadow-2xl transition duration-300 border border-transparent hover:border-primary/30">
+
+                        <!-- Image Placeholder -->
+                        <div class="h-56 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+                            <span class="text-5xl opacity-40 group-hover:scale-110 transition">🖥️</span>
+                        </div>
+
+                        <!-- Content -->
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold group-hover:text-primary transition">
+                                Modern Web Dashboard
+                            </h3>
+                            <p class="text-on-surface-variant mt-2 text-sm">
+                                Responsive admin panel with analytics and real-time data.
+                            </p>
+
+                            <div class="mt-4 flex items-center justify-between">
+                                <span class="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary">
+                            Web
+                        </span>
+                                <span class="text-sm opacity-70">View Project →</span>
+                            </div>
+                        </div>
+
+                        <!-- Hover Glow -->
+                        <div class="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-tr from-primary/5 to-accent/5 transition"></div>
+                    </div>
+
+                </div>
+
+                <!-- Views Counter -->
+                <div class="text-center mt-10">
+                    <span class="bg-primary/10 text-primary px-5 py-2 rounded-full text-sm shadow-sm">
+                ✨ Total views: <span id="viewCount" class="font-bold">5247</span>
+                    </span>
+                </div>
+
+            </div>
+        </section>
+        <!-- Contact Form With theme colors and click to call/email -->
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 px-5 md:px-16 bg-gradient-to-b from-white to-slate-50 dark:from-[#0a0f1a] dark:to-[#0d1424]">
+
+            <div class="max-w-[1440px] mx-auto grid lg:grid-cols-2 gap-14 items-start">
+
+                <!-- LEFT SIDE -->
+                <div>
+
+                    <h2 class="text-3xl md:text-4xl font-bold">
+                        Let's <span class="gradient-text">Collaborate</span>
+                    </h2>
+
+                    <p class="mt-4 text-gray-500 dark:text-gray-400 max-w-md">
+                        Reach out for a free consultation. We typically respond within 24 hours.
+                    </p>
+
+                    <!-- CONTACT INFO -->
+                    <div class="mt-10 space-y-6">
+
+                        <!-- Email -->
+                        <a href="mailto:badrinathgore2002@gmail.com" class="flex items-center gap-4 p-4 rounded-2xl bg-white dark:bg-[#121a2a]
+                   shadow-sm hover:shadow-md hover:translate-x-1 transition
+                   border border-gray-100 dark:border-gray-800">
+
+                            <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-red-500">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+
+                            <div>
+                                <p class="text-sm text-gray-500">Email</p>
+                                <p class="font-medium">badrinathgore2002@gmail.com</p>
+                            </div>
+                        </a>
+
+                        <!-- Phone -->
+                        <a href="tel:+919067168044" class="flex items-center gap-4 p-4 rounded-2xl bg-white dark:bg-[#121a2a]
+                   shadow-sm hover:shadow-md hover:translate-x-1 transition
+                   border border-gray-100 dark:border-gray-800">
+
+                            <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-green-500">
+                                <i class="fas fa-phone text-white"></i>
+                            </div>
+
+                            <div>
+                                <p class="text-sm text-gray-500">Phone</p>
+                                <p class="font-medium">+91 90671 68044</p>
+                            </div>
+                        </a>
+
+                    </div>
+
+                    <!-- SOCIAL ICONS (FIXED MOBILE) -->
+                    <div class="flex flex-wrap gap-4 mt-10 text-2xl">
+
+                        <a href="#" class="w-11 h-11 flex items-center justify-center rounded-xl bg-white dark:bg-[#121a2a] border border-gray-200 dark:border-gray-700 text-[#1877F2] hover:scale-110 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+
+                        <a href="#" class="w-11 h-11 flex items-center justify-center rounded-xl bg-white dark:bg-[#121a2a] border border-gray-200 dark:border-gray-700 text-transparent bg-clip-text bg-gradient-to-tr from-[#F58529] via-[#DD2A7B] to-[#8134AF] hover:scale-110 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+
+                        <a href="#" class="w-11 h-11 flex items-center justify-center rounded-xl bg-white dark:bg-[#121a2a] border border-gray-200 dark:border-gray-700 text-[#0A66C2] hover:scale-110 transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+
+                        <a href="#" class="w-11 h-11 flex items-center justify-center rounded-xl bg-white dark:bg-[#121a2a] border border-gray-200 dark:border-gray-700 text-[#1DA1F2] hover:scale-110 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+
+                        <a href="#" class="w-11 h-11 flex items-center justify-center rounded-xl bg-white dark:bg-[#121a2a] border border-gray-200 dark:border-gray-700 text-[#FF0000] hover:scale-110 transition">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- RIGHT SIDE (FORM FIXED) -->
+                <div class="bg-white/80 dark:bg-[#131824]/80 backdrop-blur-xl
+                    p-6 sm:p-8 md:p-10 rounded-3xl shadow-2xl
+                    border border-gray-100 dark:border-gray-800">
+
+                    <form id="contactForm" class="space-y-5">
+
+                        <!-- Name + Email -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                            <input id="name" type="text" placeholder="Full Name" required class="w-full p-4 rounded-xl border bg-white dark:bg-[#1a202c]
+                        dark:border-gray-700 focus:ring-2 focus:ring-cyan-500 outline-none">
+
+                            <input id="email" type="email" placeholder="Email" required class="w-full p-4 rounded-xl border bg-white dark:bg-[#1a202c]
+                        dark:border-gray-700 focus:ring-2 focus:ring-cyan-500 outline-none">
+
+                        </div>
+
+                        <!-- Phone -->
+                        <input id="phone" type="text" placeholder="Phone" class="w-full p-4 rounded-xl border bg-white dark:bg-[#1a202c]
+                    dark:border-gray-700 focus:ring-2 focus:ring-cyan-500 outline-none">
+
+                        <!-- Service -->
+                        <select id="service" class="w-full p-4 rounded-xl border bg-white dark:bg-[#1a202c]
+                    dark:border-gray-700 focus:ring-2 focus:ring-cyan-500 outline-none">
+
+                    <option>Software / IT Services</option>
+                    <option>Online Form Filling</option>
+                    <option>Graphic Design</option>
+                    <option>Resume / Biodata</option>
+                    <option>Documentation & Scanning</option>
+                    <option>Others</option>
+
+                </select>
+
+                        <!-- Message -->
+                        <textarea id="message" rows="4" placeholder="Project details..." class="w-full p-4 rounded-xl border bg-white dark:bg-[#1a202c]
+                    dark:border-gray-700 focus:ring-2 focus:ring-cyan-500 outline-none resize-none"></textarea>
+
+                        <!-- BUTTON -->
+                        <button type="submit" class="group relative w-full overflow-hidden rounded-2xl
+                    bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600
+                    px-6 py-4 font-bold text-white shadow-lg
+                    transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]">
+
+                    <span class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition"></span>
+
+                    <span class="relative flex items-center justify-center gap-2 text-lg">
+                        Send Message
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition">
+                            send
+                        </span>
+                    </span>
+
+                </button>
+
+                        <p id="formFeedback" class="text-sm text-center mt-3"></p>
+
                     </form>
+
                 </div>
+
             </div>
         </section>
     </main>
@@ -455,31 +1008,328 @@
     <footer class="bg-[#0b1320] text-white pt-16 pb-8 px-5 md:px-16">
         <div class="max-w-[1440px] mx-auto grid md:grid-cols-4 gap-8">
             <div>
-                <div class="flex items-center gap-2"> <img alt="Logo" class="w-10 h-10 rounded-xl object-cover shadow-md" src="images/G-Tech.png">
-                    <span class="font-bold text-xl">G-Tech Digital</span></div>
+                <div class="flex items-center gap-2">
+                    <a href="index.html" class="flex items-center gap-2">
+                        <img alt="Logo" class="w-10 h-10 rounded-xl object-cover shadow-md" src="images/G-Tech.png">
+
+                        <span class="font-bold text-xl">
+        G-Tech Digital
+    </span>
+                    </a>
+                </div>
                 <p class="text-white/50 text-sm mt-2">Design. Develop. Digitize.</p>
             </div>
             <div>
                 <h4 class="font-semibold">Services</h4>
-                <ul class="text-white/50 text-sm mt-2 space-y-1">
-                    <li>Data Entry & Biodata</li>
-                    <li>PDF/Image Conversion</li>
-                    <li>PPT & Documentation</li>
-                    <li>Web & App Dev</li>
+                <ul class="text-white/50 text-sm mt-2 space-y-2">
+
+                    <li class="hover:text-white transition duration-300">
+                        Software / IT Services
+                    </li>
+
+                    <li class="hover:text-white transition duration-300">
+                        Online Form Filling
+                    </li>
+
+                    <li class="hover:text-white transition duration-300">
+                        Graphic Design
+                    </li>
+
+                    <li class="hover:text-white transition duration-300">
+                        Marriage Biodata / Resume
+
+                    </li>
+
+                    <li class="hover:text-white transition duration-300">
+                        Documentation & Scanning
+                    </li>
+
+                    <li class="hover:text-white transition duration-300">
+                        Many Others
+                    </li>
+
                 </ul>
             </div>
+            <!-- Support Section -->
             <div>
-                <h4 class="font-semibold">Support</h4>
-                <ul class="text-white/50 text-sm mt-2">
-                    <li>FAQs</li>
-                    <li>Privacy Policy</li>
+                <h4 class="font-semibold text-white">Support</h4>
+
+                <ul class="text-white/50 text-sm mt-2 space-y-2">
+
+                    <!-- FAQs -->
+                    <li>
+                        <button onclick="openFaqModal()" class="hover:text-cyan-400 transition duration-300">
+                FAQs
+            </button>
+                    </li>
+
+                    <!-- Privacy Policy -->
+                    <li>
+                        <button onclick="openPolicyModal()" class="hover:text-cyan-400 transition duration-300">
+                Privacy Policy
+            </button>
+                    </li>
+
                 </ul>
             </div>
-            <div>
-                <h4 class="font-semibold">Newsletter</h4>
-                <div class="flex mt-2"><input id="newsEmail" type="email" placeholder="Email" class="p-2 rounded-l w-full bg-white/10"><button id="newsBtn" class="bg-primary px-3 rounded-r">Join</button></div>
-                <p id="newsMsg" class="text-xs text-green-400 mt-1"></p>
+
+            <!-- FAQ Modal -->
+            <div id="faqModal" class="fixed inset-0 hidden items-center justify-center z-50 p-4 bg-black/70 backdrop-blur-md">
+                <div class="relative w-full max-w-2xl rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-zinc-900 via-zinc-950 to-black shadow-[0_20px_80px_rgba(0,0,0,0.6)]">
+
+                    <!-- Glow -->
+                    <div class="absolute -top-20 -left-20 w-52 h-52 bg-cyan-500/20 blur-3xl rounded-full"></div>
+
+                    <div class="relative z-10 p-8">
+
+                        <!-- Header -->
+                        <div class="flex items-center gap-4 mb-6">
+
+                            <img src="images/G-Tech.png" alt="Logo" class="w-16 h-16 rounded-2xl object-cover shadow-xl">
+
+                            <div>
+                                <h2 class="text-2xl font-bold text-white">
+                                    Frequently Asked Questions
+                                </h2>
+
+                                <p class="text-sm text-zinc-400">
+                                    G-Tech Digital Support
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Content -->
+                        <div class="space-y-4 text-sm max-h-[55vh] overflow-y-auto pr-2">
+
+                            <div class="p-4 rounded-2xl bg-white/5 border border-white/5">
+                                <h4 class="text-white font-semibold">
+                                    What services do you provide?
+                                </h4>
+
+                                <p class="text-zinc-400 mt-2">
+                                    We provide website development, digital services, online support, and branding solutions.
+                                </p>
+                            </div>
+
+                            <div class="p-4 rounded-2xl bg-white/5 border border-white/5">
+                                <h4 class="text-white font-semibold">
+                                    How can I contact support?
+                                </h4>
+
+                                <p class="text-zinc-400 mt-2">
+                                    You can contact us through phone, email, or WhatsApp.
+                                </p>
+                            </div>
+
+                            <div class="p-4 rounded-2xl bg-white/5 border border-white/5">
+                                <h4 class="text-white font-semibold">
+                                    Do you create responsive websites?
+                                </h4>
+
+                                <p class="text-zinc-400 mt-2">
+                                    Yes, all our websites are mobile-friendly and responsive.
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <!-- Footer -->
+                        <div class="mt-8 text-right">
+                            <button onclick="closeFaqModal()" class="px-6 py-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold hover:scale-105 transition duration-300 shadow-lg">
+                    OK, Got It
+                </button>
+                        </div>
+
+                    </div>
+                </div>
             </div>
+
+            <!-- Privacy Policy Modal -->
+            <div id="policyModal" class="fixed inset-0 hidden items-center justify-center z-50 p-4 bg-black/70 backdrop-blur-md">
+                <div class="relative w-full max-w-2xl rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-zinc-900 via-zinc-950 to-black shadow-[0_20px_80px_rgba(0,0,0,0.6)]">
+
+                    <!-- Glow -->
+                    <div class="absolute -bottom-20 -right-20 w-52 h-52 bg-blue-500/20 blur-3xl rounded-full"></div>
+
+                    <div class="relative z-10 p-8">
+
+                        <!-- Header -->
+                        <div class="flex items-center gap-4 mb-6">
+
+                            <img src="images/G-Tech.png" alt="Logo" class="w-16 h-16 rounded-2xl object-cover shadow-xl">
+
+                            <div>
+                                <h2 class="text-2xl font-bold text-white">
+                                    Privacy Policy
+                                </h2>
+
+                                <p class="text-sm text-zinc-400">
+                                    G-Tech Digital Online Services
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Policy Content -->
+                        <div class="space-y-4 text-sm text-zinc-300 leading-7 max-h-[55vh] overflow-y-auto pr-2">
+
+                            <div class="p-4 rounded-2xl bg-white/5 border border-white/5">
+                                <p>
+                                    G-Tech Digital respects your privacy and securely protects customer information.
+                                </p>
+                            </div>
+
+                            <div class="p-4 rounded-2xl bg-white/5 border border-white/5">
+                                <p>
+                                    We may collect basic information such as name, phone number, email, and service requests for support purposes.
+                                </p>
+                            </div>
+
+                            <div class="p-4 rounded-2xl bg-white/5 border border-white/5">
+                                <p>
+                                    Your data is never sold or shared with unauthorized third parties.
+                                </p>
+                            </div>
+
+                            <div class="p-4 rounded-2xl bg-white/5 border border-white/5">
+                                <p>
+                                    By using our services, you agree to our privacy practices and terms.
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <!-- Footer -->
+                        <div class="mt-8 text-right">
+                            <button onclick="closePolicyModal()" class="px-6 py-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold hover:scale-105 transition duration-300 shadow-lg">
+                    OK, Got It
+                </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- JavaScript -->
+            <script>
+                /* FAQ Modal */
+                function openFaqModal() {
+                    document.getElementById('faqModal').classList.remove('hidden');
+                    document.getElementById('faqModal').classList.add('flex');
+
+                    document.body.style.overflow = 'hidden';
+                }
+
+                function closeFaqModal() {
+                    document.getElementById('faqModal').classList.remove('flex');
+                    document.getElementById('faqModal').classList.add('hidden');
+
+                    document.body.style.overflow = 'auto';
+                }
+
+                /* Privacy Policy Modal */
+                function openPolicyModal() {
+                    document.getElementById('policyModal').classList.remove('hidden');
+                    document.getElementById('policyModal').classList.add('flex');
+
+                    document.body.style.overflow = 'hidden';
+                }
+
+                function closePolicyModal() {
+                    document.getElementById('policyModal').classList.remove('flex');
+                    document.getElementById('policyModal').classList.add('hidden');
+
+                    document.body.style.overflow = 'auto';
+                }
+            </script>
+            <!-- Newsletter -->
+            <div>
+                <h4 class="font-semibold text-white">Newsletter</h4>
+
+                <!-- Input Area -->
+                <div class="flex mt-3 overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md shadow-lg">
+
+                    <input id="newsEmail" type="email" placeholder="Enter your email" class="w-full px-4 py-3 bg-transparent text-white placeholder:text-white/40 outline-none">
+
+                    <button id="newsBtn" class="px-5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold hover:opacity-90 transition duration-300">
+            Join
+        </button>
+
+                </div>
+
+                <!-- Message -->
+                <div id="newsMsg" class="mt-3"></div>
+            </div>
+
+            <script>
+                /* Mock API */
+                window.mockApi = {
+                    subscribe: (email) => new Promise(resolve =>
+                        setTimeout(() =>
+                            resolve({
+                                ok: true,
+                                msg: `🙏 Thanks for joining, ${email}! You're now part of the G-Tech Digital community.`
+                            }),
+                            500)
+                    )
+                };
+
+                /* Newsletter Subscribe */
+                /* Newsletter Subscribe */
+                document.getElementById('newsBtn').addEventListener('click', async function() {
+
+                    const emailInput = document.getElementById('newsEmail');
+                    const email = emailInput.value.trim();
+
+                    const msgBox = document.getElementById('newsMsg');
+
+                    /* Email Validation */
+                    if (!email) {
+
+                        msgBox.innerHTML = `
+            <div class="p-4 rounded-2xl bg-white text-red-500 border border-red-200 shadow-lg text-sm">
+                ❌ Please enter your email address.
+            </div>
+        `;
+
+                        setTimeout(() => {
+                            msgBox.innerHTML = '';
+                        }, 10000);
+
+                        return;
+                    }
+
+                    /* Loading */
+                    msgBox.innerHTML = `
+        <div class="p-4 rounded-2xl bg-white text-green-600 border border-green-200 shadow-lg text-sm">
+            ⏳ Joining newsletter...
+        </div>
+    `;
+
+                    /* API Call */
+                    const res = await window.mockApi.subscribe(email);
+
+                    /* Success Message */
+                    if (res.ok) {
+
+                        msgBox.innerHTML = `
+            <div class="p-4 rounded-2xl bg-white text-green-600 border border-green-200 shadow-xl text-sm leading-6">
+                ✅ Thanks for joining, 
+                <span class="font-semibold">${email}</span>! 
+                You're now part of the G-Tech Digital community.
+            </div>
+        `;
+
+                        /* Clear Input */
+                        emailInput.value = '';
+
+                        /* Remove After 10 Seconds */
+                        setTimeout(() => {
+                            msgBox.innerHTML = '';
+                        }, 10000);
+                    }
+
+                });
+            </script>
         </div>
         <div class="text-center text-white/40 text-sm mt-12">© <span id="currentYear"></span> G-Tech Digital Online Services — All rights reserved.</div>
 
@@ -531,56 +1381,114 @@
 
         // Contact Form
         document.getElementById('contactForm').addEventListener('submit', function(ev) {
+
+            /* Prevent Page Refresh */
             ev.preventDefault();
-            var name = document.getElementById('name').value;
-            var email = document.getElementById('email').value;
+
+            /* Get Form Values */
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value.trim();
+
+            const feedback = document.getElementById('formFeedback');
+
+            /* Validation */
             if (!name || !email) {
-                document.getElementById('formFeedback').innerHTML = '<span class="text-red-500">Name & email required</span>';
+
+                feedback.innerHTML = `
+            <div class="mt-4 p-4 rounded-2xl border border-red-200 bg-white text-red-500 shadow-lg">
+                ❌ Name and Email are required.
+            </div>
+        `;
+
+                setTimeout(() => {
+                    feedback.innerHTML = '';
+                }, 9000);
+
                 return;
             }
+
+            /* Save Contact */
             window.AppDB.saveContact({
                 name: name,
                 email: email,
-                phone: document.getElementById('phone').value,
-                service: document.getElementById('service').value,
-                msg: document.getElementById('message').value
+                phone: phone,
+                service: service,
+                msg: message
             });
-            document.getElementById('formFeedback').innerHTML = '<span class="text-green-600">✅ Message sent! We will contact you soon.</span>';
+
+            /* Success Message */
+            feedback.innerHTML = `
+        <div class="mt-4 rounded-3xl border border-green-200 bg-white shadow-xl overflow-hidden">
+
+            <div class="flex items-start gap-4 p-5">
+
+                <!-- Icon -->
+                <div class="min-w-[52px] h-[52px] rounded-2xl bg-green-100 flex items-center justify-center">
+                    <span class="text-2xl">✅</span>
+                </div>
+
+                <!-- Content -->
+                <div>
+                    <h4 class="text-green-600 font-bold text-lg">
+                        Message Sent Successfully
+                    </h4>
+
+                    <p class="text-green-600 text-sm mt-1 leading-6">
+                        Hey <span class="font-semibold">${name}</span>, thanks for filling out the form.
+                        I'll contact you as soon as possible.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    `;
+
+            /* Reset Form */
             document.getElementById('contactForm').reset();
-            setTimeout(function() {
-                document.getElementById('formFeedback').innerHTML = '';
-            }, 4000);
+
+            /* Remove Message After 20 Seconds */
+            setTimeout(() => {
+                feedback.innerHTML = '';
+            }, 20000);
+
         });
         // Newsletter
-        document.getElementById('newsBtn').addEventListener('click', async function() {
-            var email = document.getElementById('newsEmail').value;
-            if (!email) return;
-            var res = await window.mockApi.subscribe(email);
-            document.getElementById('newsMsg').innerText = res.msg;
-            document.getElementById('newsEmail').value = '';
-        });
+
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+
+            // Default = DARK MODE if nothing saved
+            if (savedTheme === 'light') {
+                document.documentElement.classList.remove('dark');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        })();
 
         // Dark mode
         var darkToggle = document.getElementById('darkModeToggle');
         var themeIcon = document.getElementById('themeIcon');
-        if (localStorage.getItem('theme') === 'dark') {
-            document.documentElement.classList.add('dark');
-            themeIcon.innerText = 'light_mode';
-        } else {
-            themeIcon.innerText = 'dark_mode';
-        }
-        darkToggle.addEventListener('click', function() {
-            if (document.documentElement.classList.contains('dark')) {
-                document.documentElement.classList.remove('dark');
-                localStorage.setItem('theme', 'light');
-                themeIcon.innerText = 'dark_mode';
-            } else {
-                document.documentElement.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
-                themeIcon.innerText = 'light_mode';
-            }
-        });
 
+        function updateIcon() {
+            themeIcon.innerText = document.documentElement.classList.contains('dark') ?
+                'light_mode' :
+                'dark_mode';
+        }
+
+        updateIcon();
+
+        darkToggle.addEventListener('click', function() {
+            const isDark = document.documentElement.classList.toggle('dark');
+
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+
+            updateIcon();
+        });
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         // Mobile drawer
         var drawer = document.getElementById('mobileDrawer');
         var overlay = document.getElementById('mobileDrawerOverlay');
